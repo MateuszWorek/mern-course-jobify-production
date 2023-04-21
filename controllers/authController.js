@@ -61,13 +61,14 @@ const login = async (req, res) => {
   attachCookies({ res, token });
 
   // first cookie
-  const oneDay = 1000 * 60 * 60 * 24;
-  res.cookie('token', token, {
-    httpOnly: true,
-    expires: new Date(Date.now() + oneDay),
-    secure: process.env.NODE.ENV === 'production',
-  });
-  // res.status(200)
+  // const oneDay = 1000 * 60 * 60 * 24;
+  // res.cookie('token', token, {
+  //   httpOnly: true,
+  //   expires: new Date(Date.now() + oneDay),
+  //   secure: process.env.NODE.ENV === 'production',
+  // });
+  // res.status(200);
+
   res
     .status(StatusCodes.OK)
     .json({ user, /* token, */ location: user.location });
